@@ -6,8 +6,8 @@ $user = '3M6Gd9ZorXxRiej.root';
 $pass = '1byKIdLMUMpkVCa5';
 $charset = 'utf8mb4';
 
-// Full path to the CA certificate
-$caCertPath = 'C:/Users/Sheriff Olawale/Documents/certs/isrgrootx1.pem';
+// Make sure this file exists after Docker copy
+$caCertPath = __DIR__ . '/isrgrootx1.pem';
 
 $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=$charset";
 
@@ -20,7 +20,11 @@ $options = [
 
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
-    echo "✅ Connected securely to TiDB Cloud via PHP!";
+    echo "✅ Connected successfully to TiDB Cloud!";
 } catch (PDOException $e) {
     die("❌ Connection failed: " . $e->getMessage());
 }
+?>
+<?php
+echo file_exists(__DIR__ . '/isrgrootx1.pem') ? "✅ Cert found" : "❌ Cert missing";
+?>

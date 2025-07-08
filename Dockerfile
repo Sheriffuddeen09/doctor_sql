@@ -1,6 +1,6 @@
 FROM php:8.1-cli
 
-# Install MySQL PDO + SSL support
+# Install SSL and PDO MySQL
 RUN apt-get update && apt-get install -y \
     libssl-dev \
     libpng-dev \
