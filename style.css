@@ -8,3 +8,8 @@ License: GPLv2 or later
 Text Domain: custom-pet-theme
 */
 
+body{
+    background-color: rgb(61, 236, 61);
+    color: white;
+    font-weight: bold;
+}

@@ -236,12 +236,13 @@ if (isset($_POST['verify_otp'])) {
     .slot-container {
       display: flex; 
       flex-direction: row; 
+      justify-content: center;
       gap: 10px;
     }
    
     .booked {
       padding: 10px 20px; font-size: 16px;
-      background-color: #ccc; color: #666;
+      background-color: green; color: #666;
       cursor: not-allowed; border: none; border-radius: 5px;
     }
    .line{
@@ -482,7 +483,17 @@ if (isset($_POST['verify_otp'])) {
 .cancel-btn:hover {
   background-color: #999;
 }
+.book_time{
+  margin-top: 10px;
+  background-color: rgb(61, 236, 61);
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 5px;
 
+}
 
   </style>
 </head>
@@ -576,8 +587,8 @@ if (isset($_SESSION['logged_in']) && isset($_SESSION['just_booked'])) {
     ?>
       <form method="post" style="display:inline;">
         <input type="hidden" name="date" value="<?= htmlspecialchars($selected_date) ?>">
-        <input type="hidden" name="slot_id" value="<?= $slot['id'] ?>">
-        <button type="submit" name="book_slot">
+        <input type="hidden" name="slot_id" value="<?= $slot['id'] ?>" >
+        <button type="submit" name="book_slot" class='book_time'>
           <?= htmlspecialchars($slot['time']) ?>
         </button>
       </form>
